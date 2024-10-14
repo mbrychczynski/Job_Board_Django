@@ -3,6 +3,6 @@ from .models import JobPosting
 
 # Create your views here.
 def index(request):
-    jobs = JobPosting.objects.filter(is_active=True)
-    print(jobs)
-    return HttpResponse("<h1>Job Board</h1>")
+    active_postings = JobPosting.objects.filter(is_active=True)
+    context = {'job_postings': active_postings}
+    return render(request, 'job_board/index.html', context)

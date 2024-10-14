@@ -1,0 +1,15 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for posting in job_postings %}
+            <li>{{ posting.title|title}} | {{ posting.description }} | £{{ posting.salary|intcomma }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
